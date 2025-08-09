@@ -69,7 +69,7 @@
                     </div>
 
                     <div class="p-2 w-full">
-                        <button
+                        <button id="contact-submit" type="button"
                             class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Submit</button>
                     </div>
 
@@ -78,6 +78,33 @@
 
 
 </body>
+
 <script src="https://cdn.tailwindcss.com"></script>
+<script>
+    document.getElementById('contact-submit').addEventListener('click', async function () {
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+
+        const payload = { name, email, message };
+
+        try {
+            const response = await fetch('https://pktech-backend-1.onrender.com/api/users', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            });
+            if (response.ok) {
+                alert('Message sent successfully!');
+            } else {
+                alert('Failed to send message.');
+            }
+        } catch (error) {
+            alert('Error: ' + error.message);
+        }
+    });
+</script>
 
 </html>
