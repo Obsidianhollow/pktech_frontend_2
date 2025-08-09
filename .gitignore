@@ -1,0 +1,28 @@
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Editor folders and settings
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# Node modules (if using npm/yarn for tools)
+node_modules/
+
+# Build output (if using a build system like webpack, vite, gulp, etc.)
+dist/
+build/
+.cache/
+
+# Temporary files
+*.tmp
+*.temp
+
+# Environment variables (if any)
+.env
+.env.*
